@@ -1,0 +1,30 @@
+{
+    "ID": "service_a",
+    "Name": "service_a",
+    "Address": "127.0.0.1",
+    "Port": 3000,
+    "Meta": {
+      "version": "v1"
+    },
+    "Check": {
+      "DeregisterCriticalServiceAfter": "90m",
+      "HTTP": "http://127.0.0.1:3000/health",
+      "Interval": "10s"
+    },
+    "Connect": {
+        "SidecarService":{
+            "Proxy":{
+                "upstreams": [
+                  {
+                    "destination_name": "service_a",
+                    "local_bind_port": 9000
+                  },
+                  {
+                    "destination_name": "service_b",
+                    "local_bind_port": 9001
+                  }
+                ]
+            }
+        }
+    }
+  }
