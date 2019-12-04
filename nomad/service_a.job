@@ -1,0 +1,46 @@
+job "service_a_job" {
+  datacenters = ["dc1"]
+  group "service-a" {
+    count = 1
+    network {
+      mode = "bridge"
+      # this setting host network 3000 forward to bridge network 3000.
+      port "http" {
+        static = 3000
+        to     = 3000
+      }
+    }
+    service {
+      name = "service-a"
+      #address_mode = "host"
+      port = "3000"
+      connect {
+        sidecar_service {
+            proxy {
+                upstreams {
+                    destination_name = "service-a"
+                    local_bind_port = 9901
+                }
+          }
+        }
+      }
+    }
+    task "service-a" {
+      driver = "docker"
+      env {
+          #. Note that dashes (-) are converted to underscores (_) in environment variable
+        SIDECAR_URL = "http://${NOMAD_UPSTREAM_ADDR_service_a}"
+      }
+      artifact { # local image down load config
+        source = "http://127.0.0.1:8080/service_a.tar"
+      }
+      config {
+        load = "service_a.tar"
+        image = "service_a"
+      }
+      resources {
+            memory = 100
+      }
+    }
+  }
+}

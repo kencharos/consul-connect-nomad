@@ -1,6 +1,6 @@
 {
-    "ID": "service_b",
-    "Name": "service_b",
+    "ID": "service-b",
+    "Name": "service-b",
     "Address": "127.0.0.1",
     "Port": 3001,
     "Meta": {

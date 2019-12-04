@@ -1,3 +1,3 @@
 Kind = "service-defaults"
-Name = "service_b"
+Name = "service-b"
 Protocol = "http"

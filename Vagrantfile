@@ -1,7 +1,9 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "centos/7"
-
+  config.vm.provider "virtualbox" do |vb| 
+     vb.memory = "1024"                   
+  end 
   config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.network "forwarded_port", guest: 8500, host: 8500
   config.vm.network "forwarded_port", guest: 4646, host: 4646
@@ -13,7 +15,6 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 19001, host: 19001
 
   config.vm.synced_folder "./", "/home/vagrant/app",create:"true"
-
   config.vm.provision "shell", inline: <<-SHELL
     sudo yum install -y yum-utils
     sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo

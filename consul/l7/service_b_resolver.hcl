@@ -1,5 +1,5 @@
 kind           = "service-resolver"
-name           = "service_b"
+name           = "service-b"
 default_subset = "v1"
 subsets = {
   "v1" = {

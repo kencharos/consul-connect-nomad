@@ -1,5 +1,5 @@
 kind = "service-router"
-name = "service_a"
+name = "service-a"
 routes = [
   {
     match {
@@ -8,8 +8,8 @@ routes = [
       }
     }
     destination {
-      service = "service_b"
+      service = "service-b"
     }
   },
-  # NOTE: a default catch-all will send unmatched traffic to "service_a"
+  # NOTE: a default catch-all will send unmatched traffic to "service-a"
 ]

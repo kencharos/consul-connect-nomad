@@ -1,6 +1,6 @@
 
 kind = "service-splitter"
-name = "service_b"
+name = "service-b"
 splits = [
   {
     weight         = 85
