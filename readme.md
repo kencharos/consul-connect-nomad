@@ -45,9 +45,9 @@ curl -X PUT http://localhost:8500/v1/agent/service/register -d @service_b2.json
 run sidecars. sidecar registerd as consul services as sidecar-proxy
 
 ```
-docker run --init --rm -d --network host --name sidecar_a consul-envoy -sidecar-for service_a -admin-bind 0.0.0.0:19000 
-docker run --init --rm -d --network host --name sidecar_b consul-envoy -sidecar-for service_b -admin-bind 0.0.0.0:19001 
-docker run --init --rm -d --network host --name sidecar_b_2 consul-envoy -sidecar-for service_b_2 -admin-bind 0.0.0.0:19002
+docker run --init --rm -d --network host --name sidecar_a consul-envoy -sidecar-for service-a -admin-bind 0.0.0.0:19000 
+docker run --init --rm -d --network host --name sidecar_b consul-envoy -sidecar-for service-b -admin-bind 0.0.0.0:19001 
+docker run --init --rm -d --network host --name sidecar_b_2 consul-envoy -sidecar-for service-b_2 -admin-bind 0.0.0.0:19002
 ```
 
 ```
