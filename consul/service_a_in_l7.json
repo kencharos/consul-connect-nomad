@@ -1,6 +1,6 @@
 {
-    "ID": "service_a",
-    "Name": "service_a",
+    "ID": "service-a",
+    "Name": "service-a",
     "Address": "127.0.0.1",
     "Port": 3000,
     "Meta": {
@@ -16,11 +16,11 @@
             "Proxy":{
                 "upstreams": [
                   {
-                    "destination_name": "service_a",
+                    "destination_name": "service-a",
                     "local_bind_port": 9000
                   },
                   {
-                    "destination_name": "service_b",
+                    "destination_name": "service-b",
                     "local_bind_port": 9001
                   }
                 ]

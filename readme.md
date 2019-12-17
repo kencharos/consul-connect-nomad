@@ -59,7 +59,7 @@ curl localhost:3000/hello_a
 intention edit.
 
 ```
-consul intention create -deny service_a service_b
+consul intention create -deny service-a service-b
 curl localhost:3000/hello_a
 # NG
 
@@ -222,7 +222,7 @@ NOTE, for CNI use, nomad run as root permession, and consul command exsists in $
 
 ```
 sudo cp /usr/local/bin/consul /usr/bin/consul
-sudo /usr/local/bin/nomad agent -config=nomad/conf
+sudo /usr/local/bin/nomad agent -config=nomad/conf &
 ```
 
 according to https://www.nomadproject.io/guides/integrations/consul-connect/index.html
